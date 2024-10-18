@@ -1,0 +1,26 @@
+<div class="container d-flex justify-content-center align-items-center  flex-column">
+<div class>
+  <div class="row text-center">
+    <h3 *ngIf="getultimoelementoborrado() != undefined; else noelementoborrado">
+      Héroe Borrado
+      <small class="text-danger"> {{ getultimoelementoborrado() }} </small>
+    </h3>
+    <ng-template #noelementoborrado>
+      <h3>No ha borrado nada</h3>
+    </ng-template>
+  </div>
+
+  <div class="row text-center mt-3">
+    <button *ngIf="getHero().length > 0" class="btn btn-outline-danger" (click)="borrarultimoelemento()">
+      Borrar el último Héroe
+    </button>
+  </div>
+
+  <div class="container mt-3">
+    <ul class="list-group">
+      <li *ngFor="let name of getHero()" class="list-group-item">{{ name }}</li>
+    </ul>
+  </div>
+</div>
+</div>
+

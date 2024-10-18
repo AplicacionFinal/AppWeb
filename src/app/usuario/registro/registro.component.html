@@ -1,0 +1,46 @@
+<div class="container d-flex justify-content-center align-items-center  flex-column border border-secondary p-1" style="margin-top: 2rem;">
+  <div class="container d-flex justify-content-center align-items-center  flex-column border  p-5">
+
+
+
+  <form [formGroup]="profileForm">
+    <div class="mb-3 text-center">
+      <label for="name" class="form-label">Username</label>
+      <form [formGroup]="profileForm">
+        <div class="ontainer d-flex justify-content-center align-items-center  flex-row">
+        <input formControlName="username">
+        <img *ngIf="profileForm.get('username')?.hasError('notUnique')" src="assets/icons/formularios/error.png" width="50" style="margin-left: 1rem;">
+        </div>
+        <div *ngIf="profileForm.get('username')?.hasError('notUnique')" class="error" style="color: darkred;">
+          El nombre de usuario ya está en uso.
+        </div>
+      </form>
+    </div>
+    <div class="mb-3 text-center">
+      <label for="name" class="form-label">Nombre</label>
+      <input type="text" formControlName="name" class="form-control" id="name" required>
+    </div>
+    <div class="mb-3 text-center">
+      <label for="email" class="form-label">Correo Electrónico</label>
+      <div class="ontainer d-flex justify-content-center align-items-center  flex-row">
+      <input type="email" formControlName="email" class="form-control" id="email" required>
+      <img *ngIf="profileForm.get('email')?.hasError('notUnique')" src="assets/icons/formularios/error.png" width="50" style="margin-left: 1rem;">
+      </div>
+        <div *ngIf="profileForm.get('email')?.hasError('notUnique')" class="error" style="color: darkred;">
+          El email ya está en uso.
+        </div>
+
+    </div>
+    <div class="mb-3 text-center">
+      <label for="password" class="form-label">Contraseña</label>
+      <input type="password" formControlName="password" class="form-control" id="passwordregister" required>
+    </div>
+    <div class="mb-3 text-center">
+      <label for="password2" class="form-label">Repite la Contraseña</label>
+      <input type="password" formControlName="password2" class="form-control" id="passwordregister2" required>
+    </div>
+
+  </form>
+  <button type="submit" class="btn btn-primary" (click)="onSubmit()">Registrar</button>
+</div>
+</div>

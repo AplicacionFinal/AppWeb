@@ -1,0 +1,47 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Innovasur</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Menú de navegación a la izquierda -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/counter">Contador</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/list">Lista de Héroes</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/list">{{isLogged()}}</a>
+        </li>
+      </ul>
+
+
+
+    </div>
+
+    <!-- Aquí van los botones alineados al extremo derecho -->
+
+
+
+      <div *ngIf="isLogged(); else noregistrado">
+        <button class="btn btn-primary" routerLink="/account"style="margin-right: 0.5rem;">Account</button>
+        <button class="btn btn" routerLink="/" (click)="logout()">Logout</button>
+      </div>
+      <ng-template #noregistrado>
+        <button class="btn btn-primary" routerLink="/login"style="margin-right: 0.5rem;">Login</button>
+        <button class="btn btn-primary" routerLink="/register">Register</button>
+      </ng-template>
+
+  </nav>
+</header>
+
+<body>
+  <router-outlet class="container pt-2"></router-outlet>
+</body>
